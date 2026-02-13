@@ -21,7 +21,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 from config import BOT_TOKEN, MAX_FILE_SIZE
-from scanners.file_scanner import FileScanner
+from .file_scanner import FileScanner
 from scanners.website_scanner import WebsiteScanner
 from utils.helpers import format_scan_result, get_file_info
 from utils.stats import stats_tracker
@@ -458,3 +458,4 @@ if __name__ == "__main__":
         asyncio.run(main())
     except KeyboardInterrupt:
         print("Bot stopped by user")
+
