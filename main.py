@@ -5,8 +5,13 @@ Main application entry point
 
 import os
 import sys
-# Add current directory to path for imports
-sys.path.insert(0, os.getcwd())
+# Add project root to path for imports
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# Also add parent directory (for when running from subdirectories)
+PARENT_DIR = os.path.dirname(PROJECT_ROOT)
+for path in [PROJECT_ROOT, PARENT_DIR]:
+    if path not in sys.path:
+        sys.path.insert(0, path)
 
 import logging
 import asyncio
